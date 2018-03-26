@@ -54,7 +54,6 @@ ExceptionHandler(ExceptionType which)
 	int	type = kernel->machine->ReadRegister(2);
 	int	val;
 	int 	result;
-	char* 	buf;
 
     switch (which) {
 	case SyscallException:
@@ -85,7 +84,7 @@ ExceptionHandler(ExceptionType which)
 			DEBUG(dbgAddr, "MyPrint");
 			result=kernel->machine->ReadRegister(4);
 			val=kernel->machine->ReadRegister(5);
-			buf = new char[val + 5];
+			char* buf = new char[val + 5];
 			int i;
 			for(i=0;i<val;i++){
 				kernel->machine->ReadMem(result + i, 1, (int*)&buf[i]);

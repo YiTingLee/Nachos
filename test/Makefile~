@@ -25,7 +25,7 @@ CPPFLAGS = $(INCDIR)
 #ASFLAGS =
 #CPPFLAGS = -P $(INCDIR)
 
-/home/lee/mips-x86.linux-xgcc/
+PATH = $(GCCDIR):/lib:/usr/bin:/bin
 
 CC = $(GCCDIR)gcc
 AS = $(GCCDIR)as
@@ -35,7 +35,7 @@ CPP = /lib/cpp
 INCDIR =-I../userprog -I../threads -I../lib
 CFLAGS = -G 0 -c $(INCDIR)
 
-all: halt shell matmult sort test1 test2
+all: halt shell matmult sort test1 test2 test3
 
 start.o: start.s ../userprog/syscall.h
 	$(CPP) $(CPPFLAGS) start.s > strt.s

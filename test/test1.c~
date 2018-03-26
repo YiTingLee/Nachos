@@ -1,0 +1,6 @@
+#include "syscall.h"
+main() {
+	char *text = "ggc";
+	MyPrint(text);
+}
+

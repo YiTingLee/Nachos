@@ -1,0 +1,6 @@
+#include "syscall.h"
+
+main() {
+	MyPrint("123");
+}
+
