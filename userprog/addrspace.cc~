@@ -22,6 +22,7 @@
 #include "noff.h"
 
 bool AddrSpace::usedPhysPage[NumPhysPages];
+int AddrSpace::usedPhysPageNum=0;
 
 //----------------------------------------------------------------------
 // SwapHeader
@@ -82,6 +83,7 @@ AddrSpace::~AddrSpace()
 {
 	for(unsigned int i=0;i<numPages;i++)
 		usedPhysPage[pageTable[i].physicalPage] = FALSE;
+	usedPhysPageNum = numPages;
 	delete pageTable;
 }
 
@@ -121,10 +123,11 @@ AddrSpace::Load(char *fileName)
 //	cout << "number of pages of " << fileName<< " is "<<numPages<<endl;
     size = numPages * PageSize;
 
-    ASSERT(numPages <= NumPhysPages);		// check we're not trying
+    ASSERT(usedPhysPageNum + numPages <= NumPhysPages);		// check we're not trying
 						// to run anything too big --
 						// at least until we have
 						// virtual memory
+	usedPhysPageNum += numPages;
 
 	pageTable = new TranslationEntry[numPages];
     for (unsigned int i = 0, j = 0; i < numPages; i++) {

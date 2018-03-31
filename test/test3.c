@@ -1,6 +1,8 @@
 #include "syscall.h"
 
-main() {
-	MyPrint("123");
-}
-
+main()
+        {
+                int     n;
+                for (n=9;n>=5;n--)
+                        PrintInt(n);
+        }

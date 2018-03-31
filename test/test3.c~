@@ -1,6 +1,6 @@
 #include "syscall.h"
 
 main() {
-	MyPrint(123);
+	MyPrint("123");
 }
 

@@ -32,6 +32,7 @@ class AddrSpace {
 
 	//----------------------------------
 	static bool usedPhysPage[NumPhysPages];
+	static int usedPhysPageNum;
 	//----------------------------------
 
   private:
